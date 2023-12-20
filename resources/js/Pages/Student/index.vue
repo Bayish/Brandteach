@@ -3,7 +3,7 @@
 </script>
 
 <template>
-aaa
+  Student
 </template>
 
 

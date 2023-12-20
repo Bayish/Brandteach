@@ -20,5 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Index');
 });
