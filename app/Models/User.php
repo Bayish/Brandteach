@@ -19,8 +19,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
+        'role_id',
+        'company_id',
+        'language_id',
+        'contact_id',
+        'country_id',
+        'city_id',
+        'street',
+        'number',
     ];
 
     /**
@@ -42,4 +51,80 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    /**
+     * The relationships to always load with the model.
+     *
+     * @var array<string>
+     */
+    protected $with = ['company', 'contact'];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function contact()
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
+    /**
+     * Check if the user is a teacher.
+     *
+     * @return bool
+     */
+
+    public function isTeacher():bool
+    {
+        return $this->role->name == 'teacher';
+    }
+
+
+    /**
+     * Check if the user is a student.
+     *
+     * @return bool
+     */
+
+    public function isStudent():bool
+    {
+        return $this->role->name == 'student';
+    }
+
+    /**
+     * Check if the user is a moderator.
+     *
+     * @return bool
+     */
+
+    public function isModerator():bool
+    {
+        return $this->role === 'moderator';
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->role->permissions->contains('name', $permission);
+    }
+
+    public function studentGroups()
+    {
+        return $this->hasMany(StudentCourse::class);
+    }
+
+    protected static function booted()
+    {
+        static::retrieved(function ($user) {
+            if ($user->role->name === 'student') {
+                $user->load('studentGroups');
+            }
+        });
+    }
 }

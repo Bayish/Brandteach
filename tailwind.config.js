@@ -1,12 +1,22 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 export default {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+      './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+      './storage/framework/views/*.php',
+      './resources/views/**/*.blade.php',
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",
+      "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+      extend: {
+        fontFamily: {
+          sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+          roboto: ['Roboto ', 'sans-serif'],
+        },
+      },
     },
     plugins: [require("daisyui")],
     daisyui: {
@@ -17,11 +27,11 @@ export default {
         {
           lightTheme: {
             "primary": "#3F8CFF",
-            "secondary": "#ffffff",
+            "secondary": "#7D8592",
             "accent": "#ffffff",
-            "neutral": "#ffffff",
+            "neutral": "#D8E0F0",
             "base-100": "#F4F9FD",
-            "info": "#ffffff",
+            "info": "#0A1629",
             "success": "#00ffff",
             "warning": "#ffffff",
             "error": "#ffffff",

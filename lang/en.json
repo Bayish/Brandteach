@@ -1,0 +1,23 @@
+{
+    "pages": {
+        "landing": {
+            "title": "Landing",
+            "description": "Description",
+            "navigations": {
+                "about": "About",
+                "contact": "Contact",
+                "partnership": "Partnership"
+            }
+        },
+        "dashboard": {
+            "welcome": "Welcome, ",
+            "navigations": {
+                "dashboard": "Dashboard",
+                "companies": "Companies",
+                "teachers": "Teachers",
+                "homeworks": "Homeworks",
+                "lesson": "Lessons"
+            }
+        }
+    }
+}
