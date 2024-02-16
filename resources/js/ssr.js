@@ -9,6 +9,7 @@ createServer((page) =>
   createInertiaApp({
     page,
     render: renderToString,
+    title: (title) => `${title} - ${appName}`,
     resolve: (name) => require(`./Pages/${name}.vue`),
     setup({ app, props, plugin }) {
       return createSSRApp({ render: () => h(app, props) })
@@ -25,3 +26,4 @@ createServer((page) =>
         })
     },
   })
+)

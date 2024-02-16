@@ -1,27 +1,30 @@
 <script setup>
-import Dashboard from "@/block/dashboard/index.vue";
-const props = defineProps({
-  teachers: {
-    type: Array,
-    default: [],
-  },
-  courses: {
-    type: Array,
-    default: [],
-  },
-  students: {
-    type: Array,
-    default: [],
-  },
-  user: {
-    type: Object,
-    default: null
-  }
-});
+import TableBody from "@/element/table/table-body.vue";
+import CrmViewContentHeader from "@/layout/crm-layout/crm-view-content-header.vue";
 
-console.log(props)
+const props = defineProps({
+  user: {
+    type: Array,
+    default: () => [],
+  }
+})
+
+const tableHeaders = ['Course Name', 'Teacher', 'Start', 'Status', 'About'];
+
+const title = "Список курсов";
+const description = "Узнайте информацию о курсах в системе";
+
 </script>
 
 <template>
-  <Dashboard></Dashboard>
+  <crm-view-content-header
+    pageTitle="Список курсов"
+    pageDescription="Узнайте информацию о курсах в системе"
+    buttonText="Add New Course"
+  />
+<!--  <table-body class="" :headers="tableHeaders" :tables="courses"/>-->
 </template>
+
+<style scoped>
+th{border-collapse:separate}
+</style>

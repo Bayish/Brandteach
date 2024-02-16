@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('link');
             $table->string('media');
+            $table->string('status');
             $table->foreignId('teacher_id');
             $table->foreignId('group_id');
             $table->timestamps();

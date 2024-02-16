@@ -58,7 +58,7 @@ class User extends Authenticatable
      *
      * @var array<string>
      */
-    protected $with = ['company', 'contact'];
+    protected $with = ['company', 'contact', 'role'];
 
     public function role()
     {
@@ -116,15 +116,23 @@ class User extends Authenticatable
 
     public function studentGroups()
     {
-        return $this->hasMany(StudentCourse::class);
+        return $this->hasMany(StudentGroup::class, 'student_id');
     }
 
-    protected static function booted()
+    public function teacherGroups()
     {
-        static::retrieved(function ($user) {
-            if ($user->role->name === 'student') {
-                $user->load('studentGroups');
-            }
-        });
+        return $this->hasMany(TeacherGroup::class, 'teacher_id');
     }
+
+//    protected static function booted()
+//    {
+//        static::retrieved(function ($user) {
+//            if ($user->role->name === 'student') {
+//                $user->load('studentGroups');
+//            }else if ($user->role->name === 'teacher') {
+//                $user->load('teacherGroups');
+//            }
+//        });
+//
+//    }
 }

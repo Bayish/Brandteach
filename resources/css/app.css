@@ -156,3 +156,9 @@ body {
 [contenteditable] {
     outline: 0 solid transparent;
 }
+
+#app{
+    height: 100%;
+    overflow: hidden;
+}
+

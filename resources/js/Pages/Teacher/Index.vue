@@ -1,5 +1,4 @@
 <script setup>
-import Dashboard from "@/block/dashboard/index.vue";
 import UserName from "@/component/user/user-name.vue";
 import PageTitle from "@/component/page/page-title.vue";
 import navigations from '@/helper/routes';
@@ -25,7 +24,6 @@ const pageTitle = navigations.filter((n) => n.link === route().current());
 </script>
 
 <template>
-  <Dashboard >
     <div class="mt-4 w-full h-full">
       <div class="flex justify-between items-center">
         <div>
@@ -99,7 +97,6 @@ const pageTitle = navigations.filter((n) => n.link === route().current());
         </div>
       </div>
     </div>
-  </Dashboard>
 </template>
 
 <style scoped>

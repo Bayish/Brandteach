@@ -20,7 +20,6 @@ class Lesson extends Model
         'description',
         'link',
         'media',
-        'description',
         'teacher_id',
         'group_id',
     ];

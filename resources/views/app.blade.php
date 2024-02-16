@@ -6,12 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
-
         @routes
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body>
+    <body class="overflow-hidden h-full bg-base-100">
         @inertia
     </body>
 </html>

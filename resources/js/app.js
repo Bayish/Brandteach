@@ -9,12 +9,21 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {far} from '@fortawesome/free-regular-svg-icons';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import { i18nVue } from 'laravel-vue-i18n';
+import CRMLayout from "@/layout/crm-layout/index.vue";
 
 library.add(far, fas);
 
 
 createInertiaApp({
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
+  resolve: (name) => {
+    const page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob("./Pages/**/*.vue"));
+    if(name !== "Auth/Login"){
+      page.then((module) => {
+        module.default.layout = module.default.layout || CRMLayout;
+      });
+    }
+    return page;
+  },
   setup({el, App, props, plugin}) {
     const VueApp = createApp({
       render: () => {
@@ -25,7 +34,6 @@ createInertiaApp({
     VueApp.use(plugin)
       .use(i18nVue, {
         resolve: lang => {
-          console.log('Resolving language:', lang);
           return import(`./../../lang/${lang}.json`);
         },
       })

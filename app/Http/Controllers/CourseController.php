@@ -21,13 +21,11 @@ class CourseController extends Controller
             })
             ->get();
         if($user->isTeacher()) {
-            $courses = Course::where('teacher_id','=', $user->id)->get();
             $teachers = User::where('company_id','=', $user->company_id)->get();
 
             return Inertia::render('Core/Course/Index', [
                 'teachers' => $teachers,
                 'students' => $students,
-                'courses' => $courses,
                 'user' => $user
             ]);
         }

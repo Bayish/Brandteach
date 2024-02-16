@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,10 +14,16 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::all();
+        $user = auth()->user();
 
-        return Inertia::render('Admin/Index', [
-            'teachers' => $teachers
+        $teachers = User::where('company_id', '=', $user->company_id)
+            ->whereHas('role', function ($query) {
+                $query->where('name', 'teacher');
+            })->with('teacherGroups.group.course')->with('teacherGroups.group.students')->get();
+
+        return Inertia::render('Core/Teacher/Index', [
+            'teachers' => $teachers,
+            'user' => $user,
         ]);
     }
 

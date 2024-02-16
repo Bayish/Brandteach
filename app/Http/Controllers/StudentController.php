@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class StudentController extends Controller
 {
@@ -12,7 +13,17 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+
+        $students = User::where('company_id', '=', $user->company_id)
+            ->whereHas('role', function ($query) {
+                $query->where('name', 'student');
+            })->with('studentGroups.group.course')->get();
+
+        return Inertia::render('Core/Student/Index', [
+            'students' => $students,
+            'user' => $user,
+        ]);
     }
 
     /**

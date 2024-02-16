@@ -24,7 +24,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <Link :href="routeLink" class="w-full block my-1 py-2 rounded-lg">
+  <Link :href="routeLink" class="w-full block my-1 py-1 rounded-lg">
     <div class="flex justify-between items-center py-1 px-2">
       <div class="px-0 w-2/12 text-left">
         <font-awesome-icon class="font-medium fa-xl" :icon="[iconType, icon]" />

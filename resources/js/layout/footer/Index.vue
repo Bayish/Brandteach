@@ -1,47 +1,61 @@
 <script setup>
-import Navigation from "@/layout/navigation/Index.vue";
-import Link from "@/layout/navigation/Link.vue";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import Navigation from '@/layout/navigation/Index.vue';
+import navigations from '@/helper/routes';
 
- const login =  {title: "Login", link: "login", icon: "comment", iconType: "far"};
- const logout =  {title: "Logout", link: "login", icon: "circle-info",  iconType: "fas"};
-
-const currentRoute = route().current().split(".");
-const checkRoute = currentRoute.length > 0 ? currentRoute[1] : currentRoute;
+const currentRoute = route().current();
+defineProps({
+  user: {
+    type: Object,
+    default: null
+  }
+});
 
 </script>
 
 <template>
-  <div class="flex flex-col justify-end item-center bg-base-100 rounded-2xl p-4 mb-4 relative h-48 mt-10 mx-3">
-    <img src="/img/layout/illustration.png" alt="Illus" class="absolute left-1/2 -translate-x-1/2 bottom-1/2 w-3/4">
-    <div class="bg-primary rounded-2xl mb-4">
-      <Link href="login" class="block mx-2 my-1 py-2 rounded-lg text-accent">
-        <div class="flex justify-between items-center py-1 px-2">
-          <div class="px-0 w-2/12 text-left">
-            <font-awesome-icon class="font-medium fa-xl" :icon="['far', 'comment']" />
+  <footer>
+    <div tabindex="0" class="bg-primary collapse collapse-arrow rounded-none md:rounded-b-2xl duration-300 ease-in-out">
+      <input type="checkbox" class="peer" />
+      <div class="collapse-title text-xl font-medium text-accent p-4">
+        <div class="flex w-full justify-start items-center">
+          <div class="avatar placeholder mr-2">
+            <div class="bg-neutral text-neutral-content rounded-full w-8 h-8">
+              <span class="text-md">BT</span>
+            </div>
           </div>
-          <div class="w-9/12">
-            <span class="text-base font-bold font-semibold">Support</span>
+          <div>
+            <h3 class="text-sm font-semibold">{{user?.name}} {{user?.surname}}</h3>
+            <p class="text-base font-bold">{{user?.role?.name}}</p>
           </div>
         </div>
-      </Link>
-    </div>
-  </div>
-  <div class="flex justify-between group">
-    <Navigation
-      class="grop-hover:bg-base-100 group-hover:text-primary mx-3"
-      :routeLink="logout.link"
-      :title="logout.title"
-      :icon="logout.icon"
-      :iconType="logout.iconType"
-      :class="{
-            'text-secondary': checkRoute !== logout.link,
-            'bg-base-100 text-primary' : checkRoute === logout.link
+      </div>
+      <div class="collapse-content p-0 bg-accent">
+        <ul class="w-full px-0 overflow-y-auto relative">
+          <li v-for="(item, index) in navigations.footer" :key="index" class="w-full">
+            <div
+              class="flex justify-between group overflow-hidden"
+            >
+              <div class="mx-3 w-full">
+                <Navigation
+                  tabindex="0"
+                  class="group-hover:bg-base-100 group-hover:text-primary"
+                  :routeLink="item.link"
+                  :title="item.title"
+                  :icon="item.icon"
+                  :iconType="item.iconType"
+                  :class="{
+            'text-secondary': currentRoute !== item.link,
+            'bg-base-100 text-primary' : currentRoute === item.link
           }"
-    />
-    <div
-      class="rounded-lg w-1 my-1 group-hover:bg-primary"
-      :class="{'bg-primary' : checkRoute === logout.link}"
-    />
-  </div>
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </template>
+
+
+

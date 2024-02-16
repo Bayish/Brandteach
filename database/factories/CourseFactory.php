@@ -3,8 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Company;
-use App\Models\Teacher;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,13 +20,9 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text(),
-            'lesson_count' => $this->faker->numberBetween(15, 30),
+            'name' => $this->faker->text(15),
             'company_id' => Company::inRandomOrder()->first()->id,
-            'teacher_id' =>User::whereHas('role', function ($query) {
-                $query->where('name', 'student');
-            })->inRandomOrder()->first()->id,
-            'start' => now(),
+            'description' => $this->faker->text,
         ];
     }
 }

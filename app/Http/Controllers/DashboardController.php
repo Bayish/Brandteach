@@ -21,14 +21,14 @@ class DashboardController extends Controller
         if($user->isTeacher()) {
             $teachers = User::where('company_id','=', $user->company_id)->get();
 
-            return Inertia::render('Teacher/Index', [
+            return Inertia::render('Core/Dashboard/Index', [
                 'teachers' => $teachers,
                 'students' => $students,
                 'user' => $user
             ]);
         }
 
-        return Inertia::render('Student/Index', [
+        return Inertia::render('Core/Dashboard/Index', [
             'students' => $students,
             'user' => $user
         ]);

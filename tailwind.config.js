@@ -27,13 +27,16 @@ export default {
         {
           lightTheme: {
             "primary": "#3F8CFF",
+            "primary-content": "#C418E6",
             "secondary": "#7D8592",
             "accent": "#ffffff",
             "neutral": "#D8E0F0",
             "base-100": "#F4F9FD",
+            "base-300": "#91929E",
+            "base-content": "#979797",
             "info": "#0A1629",
-            "success": "#00ffff",
-            "warning": "#ffffff",
+            "success": "#00D097",
+            "warning": "#FFBD21",
             "error": "#ffffff",
           },
         },
