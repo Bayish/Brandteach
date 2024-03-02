@@ -3,7 +3,7 @@
 </script>
 
 <template>
-aaa
+  Auth
 </template>
 
 

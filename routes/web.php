@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\DirectMessageController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +15,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
+Route::get('/dashboard', function () {
+        return Inertia\Inertia::render('Dashboard');
+    })->name('dashboard');
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
+
+;
+
+
+
+
