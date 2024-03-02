@@ -18,8 +18,6 @@ const uniqueCourses = () => {
   return Array.from(courses);
 }
 
-console.log(uniqueCourses())
-
 </script>
 
 <template>

@@ -25,6 +25,7 @@ class StudentGroupFactory extends Factory
             'student_id' => User::whereHas('role', function ($query) {
                 $query->where('name', 'student');
             })->inRandomOrder()->first()->id,
+            'payment' => fake()->boolean()
         ];
     }
 }

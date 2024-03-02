@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Address;
+use App\Models\ChatGroup;
+use App\Models\ChatGroupMember;
+use App\Models\ChatGroupMessage;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Contact;
@@ -42,14 +45,52 @@ class CompanySeeder extends Seeder
 
             foreach($courses as $keyCourse=>$course){
                 if($key==1 and $keyCourse == 1){
-                    User::factory()->create([
-                        'name' => 'Baiysh',
-                        'surname' => 'parpiev',
-                        'email' => 'bp@gmail.com',
+                    $firstTeacher = User::factory()->create([
+                        'name' => 'First',
+                        'surname' => 'Teacher',
+                        'email' => 'first@teacher.com',
                         'password' => 'test',
                         'role_id' => $teacherRole->id,
                         'company_id' => $company->id,
                     ]);
+
+                    $firstStudent = User::factory()->create([
+                        'name' => 'First',
+                        'surname' => 'Student',
+                        'email' => 'first@student.com',
+                        'password' => 'test',
+                        'role_id' => $studentRole->id,
+                        'company_id' => $company->id,
+                    ]);
+
+                    $secondStudent = User::factory()->create([
+                        'name' => 'Second',
+                        'surname' => 'Student',
+                        'email' => 'second@student.com',
+                        'password' => 'test',
+                        'role_id' => $studentRole->id,
+                        'company_id' => $company->id,
+                    ]);
+
+                    $chatGroup = ChatGroup::factory()->create([
+                        'author_id' => $firstTeacher->id,
+                    ]);
+
+                    foreach(array($firstStudent, $firstTeacher, $secondStudent) as $member) {
+                        ChatGroupMember::create([
+                            'chat_group_id' => $chatGroup->id,
+                            'member_id' => $member->id,
+                            'role' => 'member'
+                        ]);
+
+                        ChatGroupMessage::create([
+                            'chat_group_id' => $chatGroup->id,
+                            'sender_id' => $member->id,
+                            'content' => 'membyddfdfvfdvdfyvdfyver',
+                            'type' => 'text'
+                        ]);
+                    }
+
                 }
 
                 $teacher = User::factory()->create([
@@ -61,7 +102,9 @@ class CompanySeeder extends Seeder
                     'course_id' => $course->id,
                 ]);
 
-                TeacherGroup::create([
+
+
+                TeacherGroup::factory()->create([
                     'teacher_id' => $teacher->id,
                     'group_id' => $group->id,
                 ]);
@@ -72,7 +115,7 @@ class CompanySeeder extends Seeder
                 ]);
 
                 foreach($students as $student){
-                    StudentGroup::create([
+                    StudentGroup::factory()->create([
                         'student_id' => $student->id,
                         'group_id' => $group->id,
                     ]);

@@ -14,6 +14,7 @@ export default {
     {title: "Calendar", link: "calendar", icon: "calendar-days",  iconType: "fas"},
     {title: "Courses", link: "course", icon: "users-rectangle",  iconType: "fas"},
     {title: "Students", link: "student", icon: "graduation-cap",  iconType: "fas"},
+    {title: "Messenger", link: "messenger", icon: "gear",  iconType: "fas"},
     {title: "Settings", link: "login", icon: "gear",  iconType: "fas"},
   ],
   footer: [

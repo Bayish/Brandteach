@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Controllers\DirectMessageController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -122,6 +123,11 @@ class User extends Authenticatable
     public function teacherGroups()
     {
         return $this->hasMany(TeacherGroup::class, 'teacher_id');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 
 //    protected static function booted()

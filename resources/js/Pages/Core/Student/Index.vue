@@ -18,6 +18,8 @@ const uniqueCourses = (student) => {
   return Array.from(courses);
 }
 
+console.log(props);
+
 </script>
 
 <template>
@@ -37,19 +39,12 @@ const uniqueCourses = (student) => {
       </div>
       <div class="w-3/12 text-info">
         <div class="font-bold text-base text-info">Courses</div>
-        <div class="font-bold text-sm text-base-300" v-for="(course, i) in uniqueCourses(student)">{{course}}</div>
+        <div class="font-bold text-sm text-base-300" v-for="(course, i) in student.student_groups">{{course.group.course.name}}</div>
       </div>
       <div class="w-2/12 text-info">
-        <div class="font-bold text-base text-info">Status for month</div>
-        <div class="font-bold text-sm text-base-300">Paid</div>
-      </div>
-      <div class="w-1/12 flex justify-center">
-        <div class="radial-progress text-success text-xs leading-[3rem]"
-             style="--value:70; --size:2.8rem"
-             role="progressbar"
-        >
-          70%
-        </div>
+        <div class="font-bold text-base text-info">Status of payment</div>
+          <span class="font-bold text-sm text-base-300">Not yet</span>
+          <span class="font-bold text-sm text-base-300">Not yet</span>
       </div>
       <div class="w-2/12 flex justify-center">
         <button

@@ -1,5 +1,6 @@
 <script setup>
 import ThemeChanger from "@/component/theme/theme-changer.vue";
+import CrmMessenger from "@/layout/crm-layout/crm-messenger.vue";
 
 </script>
 
@@ -20,6 +21,7 @@ import ThemeChanger from "@/component/theme/theme-changer.vue";
     </div>
     <div class="flex-none gap-2">
       <theme-changer/>
+      <crm-messenger/>
       <div class="dropdown dropdown-end bg-accent rounded-full">
         <div tabindex="0" role="button" class="bg-accent w-8 h-8 rounded-full flex justify-center items-center">
           <div class="indicator">

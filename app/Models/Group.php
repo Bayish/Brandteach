@@ -27,4 +27,8 @@ class Group extends Model
     public function teachers(){
         return $this->hasMany(TeacherGroup::class);
     }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }

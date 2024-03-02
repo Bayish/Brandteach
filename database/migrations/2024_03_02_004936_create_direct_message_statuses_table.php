@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('student_groups', function (Blueprint $table) {
+        Schema::create('direct_message_statuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("student_id");
-            $table->foreignId("group_id");
-            $table->boolean("payment");
-            $table->foreign('student_id')->references('id')->on('users');
+            $table->foreignId('direct_message_id');
+            $table->foreignId('receiver_id')->references('id')->on('users');
+            $table->boolean('viewed');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('student_groups');
+        Schema::dropIfExists('direct_message_statuses');
     }
 };

@@ -13,6 +13,7 @@ class StudentGroup extends Model
     protected $fillable = [
         'student_id',
         'group_id',
+        'payment'
     ];
 
     public function student() {
