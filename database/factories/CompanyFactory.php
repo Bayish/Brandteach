@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Address;
+use App\Models\City;
 use App\Models\Contact;
+use App\Models\Membership;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,20 @@ class CompanyFactory extends Factory
      */
     public function definition(): array
     {
+        $city = City::inRandomOrder()->first();
+
         return [
             'name' => $this->faker->name(),
-            'address_id' => Address::inRandomOrder()->first()->id,
-            'contact_id' => Contact::inRandomOrder()->first()->id,
+            'description' => $this->faker->text(),
+            'active' => true,
+            'logo' => $this->faker->text(),
+            'membership_id' => Membership::inRandomOrder()->first()->id,
+            'membership_until' =>  $this->faker->date('Y-m-d', '+2 years'),
+            'country_id' => $city->country_id,
+            'city_id' => $city->id,
+            'street' => $this->faker->streetAddress(),
+            'house_number'=> $this->faker->address(),
+            'phone_number' => $this->faker->phoneNumber(),
         ];
     }
 }

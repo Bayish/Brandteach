@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\Core\CompanyController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DirectMessageController;
 use App\Http\Controllers\MessengerController;
@@ -28,9 +29,16 @@ Route::get('/course', [CourseController::class, 'index'])->name('course');
 
 Route::get('/messenger', [MessengerController::class, 'index'])->name('messenger');
 Route::post('/messenger/store', [MessengerController::class, 'store'])->name('messenger.store');
+
+
 ;
 Route::get('/chat/group/{groupId}/messages', [DirectMessageController::class, 'message'])->name('group.message');
 Route::post('/chat/groups/{groupId}/messages', [DirectMessageController::class, 'store'])->name('message.store');
+
+Route::get('/company/list', [CompanyController::class, 'index'])->name('company');
+Route::get('/company/create', [CompanyController::class, 'create'])->name('company.create');
+Route::post('/company/store', [CompanyController::class, 'store'])->name('company.store');
+Route::get('/company/{companyId}', [CompanyController::class, 'show'])->name('company.index');
 
 
 

@@ -2,8 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Country;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,11 +19,8 @@ class ChatGroupFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text,
-            'description' => $this->faker->text,
-            "author_id" => User::whereHas('role', function ($query) {
-                $query->where('name', 'teacher');
-            })->inRandomOrder()->first()->id,
+            'name' => $this->faker->name(),
+            'description' => $this->faker->text(),
         ];
     }
 }

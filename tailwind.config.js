@@ -38,7 +38,7 @@ export default {
             "info-content": "#E6EBF5",
             "success": "#00D097",
             "warning": "#FFBD21",
-            "error": "#ffffff",
+            "error": "#ff0000",
           },
         },
       ],

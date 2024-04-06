@@ -21,11 +21,6 @@ class Contact extends Model
         "phone_number",
     ];
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
-
     public function linksGroup()
     {
         return $this->hasMany(LinkGroup::class);

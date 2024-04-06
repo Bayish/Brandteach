@@ -9,6 +9,8 @@ class ChatGroupMessage extends Model
 {
     use HasFactory;
 
+    protected $with = ['messageStatuses', 'sender'];
+
     protected $fillable = [
         'chat_group_id',
         'sender_id',
@@ -18,12 +20,12 @@ class ChatGroupMessage extends Model
 
     public function chatGroup()
     {
-        return $this->belongsToMany(ChatGroup::class);
+        return $this->belongsTo(ChatGroup::class);
     }
 
     public function sender()
     {
-        return $this->belongsToMany(User::class, 'sender_id');
+        return $this->belongsTo(User::class, 'sender_id');
     }
 
     public function messageStatuses()

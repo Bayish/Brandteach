@@ -59,7 +59,7 @@ class User extends Authenticatable
      *
      * @var array<string>
      */
-    protected $with = ['company', 'contact', 'role'];
+    protected $with = ['company', 'contact', 'address', 'role'];
 
     public function role()
     {
@@ -69,6 +69,11 @@ class User extends Authenticatable
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
     }
 
     public function contact()
