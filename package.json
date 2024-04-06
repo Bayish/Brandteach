@@ -25,11 +25,14 @@
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/vue3": "^1.0.14",
         "@vue/server-renderer": "^3.3.13",
+        "@vuepic/vue-datepicker": "^8.3.1",
+        "@vueup/vue-quill": "^1.2.0",
         "laravel-echo": "^1.15.3",
         "laravel-vue-i18n": "^2.7.6",
         "path": "^0.12.7",
         "postcss-import": "^15.1.0",
         "pusher-js": "^8.4.0-rc2",
+        "quill-blot-formatter": "^1.0.5",
         "url": "^0.11.3"
     }
 }

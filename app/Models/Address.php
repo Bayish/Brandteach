@@ -15,9 +15,4 @@ class Address extends Model
         "street",
         "number"
     ];
-
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 }

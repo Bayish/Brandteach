@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {
         return Inertia\Inertia::render('Dashboard');
-    })->name('dashboard');
+})->name('dashboard');
 
 
 ;

@@ -2,9 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\ChatGroupMessage;
-use App\Models\Message;
-use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -13,34 +10,28 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageSent implements ShouldBroadcast
+class DirectGroupMessageStatusUpdated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
+     * Information about the shipping status update.
+     *
+     * @var string
      */
-
-    public $user;
-    public $chatGroupMessage;
-    public function __construct(User $user, ChatGroupMessage $chatGroupMessage)
+    public $message;
+    public function __construct()
     {
-        $this->user = $user;
-        $this->chatGroupMessage = $chatGroupMessage;
+        //
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return \Illuminate\Broadcasting\PrivateChannel
      */
-
     public function broadcastOn(): array
     {
-        return [
-            new PrivateChannel('chat-group.'.$this->chatGroupMessage->chat_group_id)
-        ];
+        return new PrivateChannel('direct-message.'.$this->message->directMessageStatus->id);
     }
 }
-
-

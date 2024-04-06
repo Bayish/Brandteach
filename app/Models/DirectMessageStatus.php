@@ -11,17 +11,11 @@ class DirectMessageStatus extends Model
 
     protected $fillable = [
         'direct_message_id',
-        'receiver_id',
         'viewed',
     ];
 
     public function directMessage()
     {
         return $this->belongsTo(DirectMessage::class, );
-    }
-
-    public function receiver()
-    {
-        return $this->belongsTo(User::class);
     }
 }

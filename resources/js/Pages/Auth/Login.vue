@@ -25,7 +25,7 @@ const submit = () => {
 </script>
 
 <template>
-  <div class="flex flex-row justify-center align-center h-screen p-6">
+  <div class="flex flex-row justify-center align-center h-screen p-6 max-w-screen-2xl mx-auto">
     <div class="w-1/2 bg-primary rounded-l-2xl flex flex-col justify-center items-center p-6">
       <div class="w-2/3 flex justify-start items-end">
         <Logo class="w-24"/>
