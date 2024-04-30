@@ -135,6 +135,12 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function contactLinks()
+    {
+        return $this->hasMany(UserContactLinks::class);
+    }
+
+
 //    protected static function booted()
 //    {
 //        static::retrieved(function ($user) {

@@ -44,9 +44,10 @@ const onFocus = (value) =>{
         >
             <input
                 class="border-none outline-none bg-inherit w-full text-secondary selection:bg-base-100"
-                type="text"
+                type="email"
                 :value="modelValue"
                 :id="'bt-field-' + inputId"
+                :placeholder="placeholder"
                 @focus="onFocus(true)"
                 @blur="onFocus(false)"
                 @input="$emit('update:modelValue', $event.target.value)"

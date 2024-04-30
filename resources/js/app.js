@@ -16,8 +16,9 @@ library.add(far, fas);
 
 createInertiaApp({
   resolve: (name) => {
+      console.log(name !== "Auth/Login", name.includes("Core/"));
     const page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob("./Pages/**/*.vue"));
-    if(name !== "Auth/Login"){
+    if(name !== "Auth/Login" && name.includes("Core/")){
       page.then((module) => {
         module.default.layout = module.default.layout || CRMLayout;
       });

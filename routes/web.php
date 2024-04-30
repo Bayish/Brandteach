@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DirectMessageController;
+use App\Http\Controllers\Storefront\HomepageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+//Route::get('/', function () {
+//    return redirect()->route('dashboard');
+//});
+
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/dashboard', function () {
         return Inertia\Inertia::render('Dashboard');

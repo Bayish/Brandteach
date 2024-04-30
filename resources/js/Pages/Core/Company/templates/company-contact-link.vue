@@ -14,7 +14,9 @@ const props = defineProps({
     }
 })
 
-const countOfLinks = ref(1);
+console.log(props)
+
+const countOfLinks = ref(props.contact.length);
 
 const addContactLink = (event) => {
     event.preventDefault();
@@ -39,23 +41,30 @@ const removeContactLink = (event, index) => {
         <input-select
             v-model:selected="contact[count - 1].social_media_id"
             :options="socialMedias"
-            class="mb-4 w-1/6"
+            class="mb-4 w-2/12"
             label="Type"
             :input-id="'company-social-media-' + count"
+            :required="true"
         />
         <input-text
             v-model:modelValue="contact[count - 1].link"
-            class="mb-4 mx-2 w-5/6"
+            class="mb-4 mx-2 w-8/12"
             label="url"
             :input-id="'company-link-' + count"
+            :required="true"
         />
-        <button v-if="count < countOfLinks" @click="e =>removeContactLink(e, count)"
-                class="bg-error btn mt-8 h-12 w-12 text-2xl text-bold text-accent rounded-full block">
-            +
-        </button>
-        <button v-else @click="e =>addContactLink(e)"
-                class="bg-primary btn mt-8 h-12 w-12 text-2xl text-bold text-accent rounded-full block">
-            +
-        </button>
+        <div class="flex justify-start items-center w-2/12">
+            <button v-if="count < countOfLinks" @click="e =>removeContactLink(e, count)"
+                    class="bg-error hover:bg btn mt-8 h-12 w-12 text-2xl text-bold text-accent rounded-full block">
+                -
+            </button>
+            <button @click="e =>addContactLink(e)"
+                    class="bg-primary btn mt-8 h-12 w-12 text-2xl text-bold text-accent rounded-full block">
+                +
+            </button>
+        </div>
     </div>
 </template>
+
+
+

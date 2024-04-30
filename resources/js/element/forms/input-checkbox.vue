@@ -2,7 +2,7 @@
 
 defineProps({
     checked: {
-        type: Boolean,
+        type: [Boolean, Number],
         default: false
     },
     inputId: {
@@ -33,7 +33,7 @@ defineEmits(['update:checked']);
             <input
                 class="block toggle toggle-primary toggle-sm checked:text-white"
                 type="checkbox"
-                :checked="checked"
+                :checked="checked || checked"
                 @input="$emit('update:checked', $event.target.checked)"
             />
         </div>

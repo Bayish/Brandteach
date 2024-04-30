@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 
 export default {
     content: [
@@ -18,7 +19,9 @@ export default {
         },
       },
     },
-    plugins: [require("daisyui")],
+    plugins: [
+        require("daisyui"),
+    ],
     daisyui: {
       themes: [
         "light",

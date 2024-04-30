@@ -2,8 +2,7 @@
 
 defineProps({
     selected: {
-        type: String,
-        default: null
+        type: [Number, String],
     },
     options: {
         type: Array,
@@ -25,12 +24,17 @@ defineProps({
         type: String,
         default: null
     },
+    required: {
+        type: Boolean,
+        default: false
+    },
+    disabled: {
+        type: Boolean,
+        default: false
+    },
 })
 
 defineEmits(['update:selected']);
-
-
-
 
 </script>
 <template>
@@ -44,14 +48,17 @@ defineEmits(['update:selected']);
             <select
                 class="border-none outline-none bg-inherit w-full text-secondary bg-base-100"
                 :id="'bt-field-' + inputId"
+                :disabled="disabled"
+                :required="required"
                 @input="$emit('update:selected', $event.target.value)"
             >
-                <option disabled selected>Select</option>
+                <option disabled selected>Select you variant</option>
                 <option
                     v-for="(option, index) in options"
                     :key="index"
                     :selected="option.id === selected"
                     :value="option.id"
+                    class="bg-base-100"
                 >
                     {{ option.name }}
                 </option>
@@ -59,3 +66,22 @@ defineEmits(['update:selected']);
         </div>
     </div>
 </template>
+
+<style scoped>
+/* Style the options */
+select option {
+    background-color: #f8f8f8; /* Background color of options */
+    color: #333; /* Text color of options */
+}
+
+/* Style hover effect on options */
+select option:hover {
+    background-color: #ddd; /* Background color on hover */
+}
+
+/* Style selected option */
+select option:checked {
+    background-color: #007bff; /* Background color of selected option */
+    color: #fff; /* Text color of selected option */
+}
+</style>
