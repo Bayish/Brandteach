@@ -19,12 +19,14 @@ const changeActive = (value) =>{
   currentRoute.value = value;
 }
 
+const {core} = navigations;
+console.log(core.header)
 </script>
 
 <template>
   <nav class="overflow-y-auto h-full flex-grow">
     <ul class="w-full px-0 overflow-y-auto relative">
-      <li v-for="(item, index) in navigations.header" :key="index" class="w-full">
+      <li v-for="(item, index) in core.header" :key="index" class="w-full">
         <div
           class="flex justify-between group overflow-hidden"
           @mouseover="setHovered(item.children?.length, true)"

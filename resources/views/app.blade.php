@@ -10,7 +10,7 @@
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body class="min-h-full overflow-y-auto bg-base-100">
+    <body class="min-h-full overflow-y-auto bg-base-100 scroll-smooth">
         @inertia
     </body>
 </html>

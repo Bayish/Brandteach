@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DirectMessageController;
 use App\Http\Controllers\Storefront\HomepageController;
+use App\Http\Controllers\Storefront\PartnersPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 //    return redirect()->route('dashboard');
 //});
 
-Route::get('/', [HomepageController::class, 'index']);
+Route::get('/', [HomepageController::class, 'index'])->name('home');
+Route::get('/courses', [HomepageController::class, 'index'])->name('courses');
+Route::get('/news', [HomepageController::class, 'index'])->name('news');
+Route::get('/partners', [PartnersPageController::class, 'index'])->name('partners');
+Route::get('/contact', [HomepageController::class, 'index'])->name('contact');
 
 Route::get('/dashboard', function () {
         return Inertia\Inertia::render('Dashboard');
