@@ -26,11 +26,11 @@ class User extends Authenticatable
         'role_id',
         'company_id',
         'language_id',
-        'contact_id',
         'country_id',
         'city_id',
         'street',
-        'number',
+        'house_number',
+        'phone_number',
     ];
 
     /**
@@ -59,7 +59,7 @@ class User extends Authenticatable
      *
      * @var array<string>
      */
-    protected $with = ['company', 'contact', 'address', 'role'];
+    protected $with = ['company', 'address', 'role'];
 
     public function role()
     {
@@ -76,10 +76,6 @@ class User extends Authenticatable
         return $this->belongsTo(Address::class);
     }
 
-    public function contact()
-    {
-        return $this->belongsTo(Contact::class);
-    }
 
     /**
      * Check if the user is a teacher.
