@@ -1,10 +1,19 @@
-<script>
-import {defineComponent} from "vue";
+<script setup>
 import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
+import TitleSecondary from "@/element/titles/title-secondary.vue";
+import TitleThird from "@/element/titles/title-third.vue";
 
-export default defineComponent({
-    components: {SectionContainer}
-})
+const blocks = [
+    {title: "Ищите идеальный курс", description: "Воспользуйтесь нашим удобным поиском, чтобы найти курс, который полностью соответствует вашим интересам и требованиям. Мы предлагаем широкий спектр тематик и продолжительность курсов, чтобы вы могли выбрать оптимальный вариант для своего обучения."},
+    {title: "Отзывы и рейтинги", description: "Просматривайте отзывы других студентов и оценки курсов, чтобы сделать правильный выбор. Вы можете узнать об опыте других и принять информированное решение."},
+    {title: "Гибкое расписание", description: "Наши онлайн курсы предлагают гибкий график обучения. Все материалы доступны в записи, так что вы можете изучать их в любое удобное время. Нет необходимости приспосабливаться к строгому расписанию."},
+    {title: "Возможность получения сертификата", description: "Завершите курс и получите официальный сертификат, подтверждающий ваше успешное завершение программы обучения. Это может быть полезным для вашей карьеры или дальнейшего образования."},
+    {title: "Профессиональная поддержка", description: "Наши эксперты и консультанты готовы помочь вам на каждом этапе обучения. Получайте поддержку и руководство по всем вопросам, связанным с курсами и вашим образовательным путем."},
+    {title: "Карьерные возможности", description: "Некоторые курсы могут помочь вам развить новые навыки или углубить знания в определенной области, что может привести к новым карьерным возможностям или повышению на текущем месте работы. Исследуйте курсы с учетом своих карьерных целей."},
+]
+
+
+
 </script>
 <template>
     <section>
@@ -12,8 +21,8 @@ export default defineComponent({
             <div class="flex flex-col items-center justify-center">
 
                 <div class="flex flex-col items-center justify-center mt-12">
-                    <h2 class="mb-4 text-3xl font-extrabold leading-tight text-center lg:text-4xl text-info font-display">Elevate Your Productivity with Motion</h2>
-                    <p class="text-lg text-center lg:w-7/12 text-secondary">Unlock the full potential of your workflow with Windbase. Our platform is designed to streamline your operations and boost productivity. Experience the difference as we help you save time and work more efficiently.</p>
+                    <title-secondary class="mb-4">Наша миссия</title-secondary>
+                    <title-third class="text-secondary lg:w-3/4 text-center my-4">Мы стремимся сделать образование доступным для всех, предоставляя широкий выбор курсов по разным тематикам и обеспечивая удобные условия для обучения и развития..</title-third>
                 </div>
                 <div class="grid grid-cols-1 gap-10 mt-20 lg:grid-cols-3 md:grid-cols-2">
                     <div class="flex flex-col items-center col-span-1 gap-6 px-10 py-8 hover:bg-white hover:shadow-main rounded-3xl">

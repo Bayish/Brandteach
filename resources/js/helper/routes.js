@@ -12,6 +12,8 @@ const core = {
         {title: "Teachers", link: "teacher", icon: "person-chalkboard", iconType: "fas"},
         {title: "Calendar", link: "calendar", icon: "calendar-days", iconType: "fas"},
         {title: "Courses", link: "course", icon: "users-rectangle", iconType: "fas"},
+        {title: "Groups", link: "groups", icon: "users-rectangle", iconType: "fas"},
+        {title: "Homeworks", link: "course", icon: "users-rectangle", iconType: "fas"},
         {title: "Students", link: "student", icon: "graduation-cap", iconType: "fas"},
         {title: "Messenger", link: "messenger", icon: "comment-dots", iconType: "fas"},
         {title: "Settings", link: "login", icon: "gear", iconType: "fas"},

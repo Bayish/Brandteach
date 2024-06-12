@@ -11,7 +11,7 @@ const updateActive = (index) => {
 <template>
     <div class="navbar-right  relative">
         <button
-            class="m-1 btn border-none outline-none bg-base-100"
+            class="m-1 btn border-none outline-none bg-primary"
             @click="updateActive(index)">
             <slot name="button"/>
         </button>

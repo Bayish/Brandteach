@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +38,22 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'))
                 ->group(base_path('routes/auth.php'));
 
+
             Route::middleware(['web', 'auth'])
-                ->group(base_path('routes/dashboard.php'))
-                ->group(base_path('routes/core.php'));
+                ->group(function () {
+                    // Include the dashboard.php and core.php files
+                    require base_path('routes/dashboard.php');
+                    require base_path('routes/core.php');
+
+                    // Get all PHP files from the 'core' directory and its subdirectories
+                    $coreFiles = File::allFiles(base_path('routes/core'));
+
+                    foreach ($coreFiles as $file) {
+                        if ($file->getExtension() === 'php') {
+                            require_once $file->getPathname();
+                        }
+                    }
+                });
         });
     }
 }

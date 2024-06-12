@@ -4,10 +4,18 @@ import navigations from '@/helper/routes';
 import {ref} from "vue";
 import Link from "@/layout/navigation/Link.vue";
 const isOpen = ref(false);
+import { Head } from '@inertiajs/vue3'
+
 const toggleMenu = (value) => isOpen.value = value;
 
 const storefront = navigations.storefront;
 const currentRoute = ref(route().current());
+const metaData = ref(storefront.header[0]);
+
+const meta = storefront.header.filter(i => currentRoute.value === i.link);
+if(meta.length > 0) {
+    metaData.value =  meta[0];
+}
 
 const changeActive = (value) =>{
     currentRoute.value = value;
@@ -15,8 +23,12 @@ const changeActive = (value) =>{
 
 </script>
 <template>
-    <header class="bg-white">
-        <nav class="mx-auto flex max-w-screen-xl container items-center justify-between py-4" aria-label="Global">
+    <Head>
+        <title>{{metaData.metaTitle}}</title>
+        <meta name="description" :content="metaData.metaDescription">
+    </Head>
+    <header class="bg-white h-24">
+        <nav class="px-4 xl:px-0 container w-full h-full mx-auto max-w-screen-xl flex items-center justify-between py-4" aria-label="Global">
             <div class="flex lg:flex-1">
                 <div class="mw-full w-14 mr-auto">
                     <Logo/>
@@ -40,6 +52,7 @@ const changeActive = (value) =>{
                     <button
                         type="button"
                         class="flex items-center btn btn-primary rounded-full shadow-none ml-2 text-base font-semibold text-accent">
+                        <font-awesome-icon :icon="['fas', 'circle-user']" />
                         Войти
                         <svg class="h-5 w-5 flex-none text-accent" viewBox="0 0 20 20" fill="currentColor"
                              aria-hidden="true">
@@ -58,12 +71,7 @@ const changeActive = (value) =>{
                                 class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                                 <div
                                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                    <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none"
-                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                         aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"/>
-                                    </svg>
+                                    <font-awesome-icon :icon="['fas', 'user-graduate']" />
                                 </div>
                                 <div class="flex-auto">
                                     <a href="/login" class="block font-semibold text-gray-900">
@@ -77,12 +85,7 @@ const changeActive = (value) =>{
                                 class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                                 <div
                                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                    <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none"
-                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                         aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/>
-                                    </svg>
+                                    <font-awesome-icon :icon="['fas', 'fingerprint']" />
                                 </div>
                                 <div class="flex-auto">
                                     <a href="/login" class="block font-semibold text-gray-900">

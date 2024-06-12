@@ -1,11 +1,12 @@
 <script setup>
 import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
+import TitleSecondary from "@/element/titles/title-secondary.vue";
 
 </script>
 <template>
     <section-container class="gap-8 mx-auto my-16">
         <div class="w-full">
-            <p class="text-base py-4 font-medium leading-7 text-center text-info">Эти компании используют нашу платформу</p>
+            <title-secondary class="text-center my-12">Эти компании используют нашу платформу</title-secondary>
             <div
                 class="flex flex-wrap items-center justify-center w-full gap-6 lg:gap-0 lg:flex-nowrap lg:justify-between">
             <span>

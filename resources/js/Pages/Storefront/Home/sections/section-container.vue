@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <div class="container mx-auto max-w-screen-xl py-8 my-8">
+    <div class="px-4 xl:px-0 container w-full h-full mx-auto max-w-screen-xl py-8">
         <slot/>
     </div>
 </template>

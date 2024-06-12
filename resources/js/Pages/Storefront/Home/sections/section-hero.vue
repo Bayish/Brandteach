@@ -1,11 +1,15 @@
 <script setup>
 import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
+import TitleMain from "@/element/titles/title-main.vue";
+import TextGray from "@/element/text/text-gray.vue";
+import ButtonPrimary from "@/element/buttons/button-primary.vue";
+import ButtonSecondary from "@/element/buttons/button-secondary.vue";
 
 </script>
 <template>
-    <section class="section-hero h-full">
-        <section-container class="py-28 flex flex-col flex-1">
-            <div class="w-full flex">
+    <section class="section-hero h-[calc(100vh-6rem)]">
+        <section-container>
+            <div class="w-full h-full flex justify-center items-center">
                 <div class="w-7/12 flex flex-col justify-center col-span-1 text-center lg:text-start">
                     <div class="flex items-center justify-center mb-4 lg:justify-normal">
                         <img class="h-5"
@@ -13,17 +17,13 @@ import SectionContainer from "@/Pages/Storefront/Home/sections/section-container
                              alt="logo">
                         <h4 class="ml-2 text-sm font-bold tracking-widest text-primary uppercase">Ваше образование начинается здесь</h4>
                     </div>
-                    <h1 class="mb-8 text-4xl font-extrabold leading-tight lg:text-6xl text-info">Мир онлайн-образования теперь доступен</h1>
-                    <p class="mb-6 text-base font-normal leading-7 lg:w-3/4 text-grey-900">
+                    <title-main>Мир онлайн-образования теперь доступен</title-main>
+                    <text-gray class="mb-6 lg:w-3/4">
                         Для того чтобы учиться, вам не обязательно куда-то ехать. Вы можете найти все здесь и обучаться онлайн с лучшими наставниками.
-                    </p>
+                    </text-gray>
                     <div class="flex flex-col items-center gap-4 lg:flex-row">
-                        <button
-                            class="flex items-center border-2 border-primary py-4 text-sm font-bold text-white px-7 bg-primary hover:bg-accent focus:ring-4 hover:text-primary focus:ring-purple-blue-100 transition duration-300 rounded-xl hover">
-                            Начнем
-                        </button>
-                        <button
-                            class="flex items-center py-4 text-sm font-medium px-7 text-primary hover:text-dark-grey-900 transition duration-300 rounded-2xl">
+                        <button-primary>Начнем</button-primary>
+                        <button-secondary>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="w-5 h-5 mr-2">
                                 <path fill-rule="evenodd"
@@ -31,7 +31,7 @@ import SectionContainer from "@/Pages/Storefront/Home/sections/section-container
                                       clip-rule="evenodd"></path>
                             </svg>
                             Получите консультацию
-                        </button>
+                        </button-secondary>
                     </div>
                 </div>
                 <div class="w-5/12 items-center justify-start hidden col-span-1 md:flex">
@@ -51,6 +51,5 @@ import SectionContainer from "@/Pages/Storefront/Home/sections/section-container
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100%;
 }
 </style>
