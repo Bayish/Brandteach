@@ -5,7 +5,7 @@ import SectionContainer from "@/Pages/Storefront/Home/sections/section-container
 <template>
     <section>
         <section-container class="bg-info rounded-xl shadow-md px-6">
-            <div class=" grid items-center justify-center w-full lg:h-full grid-cols-1 my-auto lg:grid-cols-2 my-16">
+            <div class="px-6 grid items-center justify-center w-full lg:h-full grid-cols-1 my-auto lg:grid-cols-2 my-16">
                 <div class="flex flex-col col-span-1 text-center lg:text-start text-accent mb-7">
                     <h3 class="text-4xl font-extrabold leading-tight">Join Us</h3>
                     <h3 class="text-4xl font-medium leading-tight">Transform your website visitors into satisfied
