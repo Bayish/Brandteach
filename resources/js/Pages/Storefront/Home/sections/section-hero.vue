@@ -7,7 +7,7 @@ import ButtonSecondary from "@/element/buttons/button-secondary.vue";
 
 </script>
 <template>
-    <section class="section-hero h-[calc(100vh-6rem)]">
+    <section class="section-hero h-[calc(100vh-6rem)] bg-[url('/img/landing/rect-light.svg')]" >
         <section-container>
             <div class="w-full h-full flex justify-center items-center">
                 <div class="w-7/12 flex flex-col justify-center col-span-1 text-center lg:text-start">
@@ -47,7 +47,7 @@ import ButtonSecondary from "@/element/buttons/button-secondary.vue";
 
 <style scoped>
 .section-hero {
-    background-image: url('./img/landing/rect-light.svg');
+    background-image: url('/img/landing/rect-light.svg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

@@ -19,7 +19,7 @@ import AnimatedNumber from "@/component/animated/animated-number.vue";
                     <p class="text-base font-medium leading-7 text-center text-dark-grey-600">Annual Revenue Growth</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <h3 class="text-5xl font-extrabold leading-tight text-center text-dark-grey-900 font-display"><span id="countto3" countto="2600" data-decimal="1">2.8</span>k+</h3>
+                    <h3 class="text-5xl font-extrabold leading-tight text-center text-dark-grey-900 font-display text-info"><span id="countto3" countto="2600" data-decimal="1">2.8</span>k+</h3>
                     <p class="text-base font-medium leading-7 text-center text-dark-grey-600">Global Partners</p>
                 </div>
                 <div class="flex flex-col items-center">

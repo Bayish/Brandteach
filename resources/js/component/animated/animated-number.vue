@@ -68,7 +68,7 @@ handleScroll();
 </script>
 
 <template>
-    <span class="animated-number">
+    <span class="animated-number text-info">
         <slot name="before"/>{{ displayNumber }}<slot name="after"/>
     </span>
 </template>
