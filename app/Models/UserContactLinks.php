@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactLink extends Model
+class UserContactLinks extends Model
 {
     use HasFactory;
-    protected $with = ['socialMedia'];
 
     protected $fillable = [
+        'user_id',
         'social_media_id',
         'link',
     ];
 
-    public function socialMedia()
+    public function user()
     {
-        return $this->belongsTo(SocialMedia::class);
+        return $this->belongsTo(User::class);
     }
 }

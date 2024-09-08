@@ -22,6 +22,10 @@ defineProps({
         type: String,
         default: null
     },
+    required: {
+        type: Boolean,
+        default: false
+    },
 })
 
 defineEmits(['update:modelValue']);
@@ -45,8 +49,10 @@ const onFocus = (value) =>{
             <input
                 class="border-none outline-none bg-inherit w-full text-secondary selection:bg-base-100"
                 type="text"
+                autocomplete="off"
                 :value="modelValue"
                 :id="'bt-field-' + inputId"
+                :required="required"
                 @focus="onFocus(true)"
                 @blur="onFocus(false)"
                 @input="$emit('update:modelValue', $event.target.value)"

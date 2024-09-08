@@ -5,7 +5,7 @@ import {ref} from "vue";
 
 const props = defineProps({
     date: {
-        type: String,
+        type: [Date, String],
         default: null
     },
     inputId: {
@@ -28,11 +28,15 @@ const props = defineProps({
         type: Boolean,
         default: false
     }
-})
+});
 
-defineEmits(['update:date']);
-const dateValue = ref(props.date ? props.date.toString() : null);
+const emit = defineEmits(['update:date']);
+const dateValue = ref(props.date && new Date(props.date).toString());
 
+const handleDate = (modelData) => {
+    dateValue.value = modelData;
+    emit('update:date', modelData)
+}
 
 
 </script>
@@ -46,12 +50,12 @@ const dateValue = ref(props.date ? props.date.toString() : null);
         >
             <VueDatePicker
                 ref="dp"
-                v-model="dateValue"
+                :model-value="dateValue"
                 class="!border-0"
                 format="dd.MM.yyyy"
                 :enable-time-picker="enableTimePicker"
                 :week-numbers="{ type: 'iso' }"
-                @update:date="(modelData) => $emit('update:date', modelData)"
+                @update:model-value="handleDate"
             >
             </VueDatePicker>
         </div>

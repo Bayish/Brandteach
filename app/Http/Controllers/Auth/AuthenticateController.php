@@ -19,6 +19,12 @@ class AuthenticateController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
+
+        if( !$request->authenticate() ){
+            return redirect()->back()->withErrors([
+                'email' => 'Invalid credentials. Please try again.',
+            ]);
+        }
         $request->authenticate();
         $request->session()->regenerate();
 

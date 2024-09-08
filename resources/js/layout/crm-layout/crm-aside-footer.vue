@@ -10,7 +10,7 @@ const props = defineProps({
   }
 });
 
-console.log(props)
+const {core} = navigations;
 
 </script>
 
@@ -33,7 +33,7 @@ console.log(props)
       </div>
       <div class="collapse-content p-0 bg-accent">
         <ul class="w-full px-0 overflow-y-auto relative">
-          <li v-for="(item, index) in navigations.footer" :key="index" class="w-full">
+          <li v-for="(item, index) in core.footer" :key="index" class="w-full">
             <div
               class="flex justify-between group overflow-hidden"
             >

@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_links', function (Blueprint $table) {
+        Schema::create('user_contact_links', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user');
             $table->foreignId('social_media_id');
             $table->string('link');
             $table->timestamps();
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_links');
+        Schema::dropIfExists('user_contact_links');
     }
 };

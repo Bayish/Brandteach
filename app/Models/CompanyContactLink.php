@@ -9,11 +9,10 @@ class CompanyContactLink extends Model
 {
     use HasFactory;
 
-    protected $with = ['contactLink'];
-
     protected $fillable = [
         'company_id',
-        'contact_link_id',
+        'social_media_id',
+        'link',
     ];
 
     public function company()

@@ -3,6 +3,10 @@ defineProps({
     text: {
         type: String,
         default: null
+    },
+    type: {
+        type: String,
+        default: 'Submit'
     }
 })
 </script>

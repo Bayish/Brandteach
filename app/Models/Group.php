@@ -9,6 +9,8 @@ class Group extends Model
 {
     use HasFactory;
 
+    protected $with = ['course', 'students', 'teachers'];
+
     protected $fillable = [
         'course_id',
         'name',

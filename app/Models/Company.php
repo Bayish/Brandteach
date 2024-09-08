@@ -9,10 +9,11 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $with = ['membership', 'contactLinks', 'contentMediaLinks'];
+    protected $with = ['membership', 'contactLinks', 'contentMediaLinks', 'courses'];
 
     protected $fillable = [
         'name',
+        'email',
         'description',
         'active',
         'logo',
@@ -38,5 +39,10 @@ class Company extends Model
     public function contentMediaLinks()
     {
         return $this->hasMany(CompanyContentMediaLink::class);
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
     }
 }

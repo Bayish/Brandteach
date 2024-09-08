@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Core;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\CompanyContactLink;
+use App\Models\CompanyContentMediaLink;
+use App\Models\ContactLink;
 use App\Models\Country;
 use App\Models\Membership;
 use App\Models\SocialMedia;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,11 +22,11 @@ class CompanyController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $company = Company::all();
+        $companies = Company::all();
 
         return Inertia::render('Core/Company/list', [
             'user' => $user,
-            'companies' => $company,
+            'companies' => $companies,
         ]);
     }
 
@@ -49,7 +53,63 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+
+//        $request->validate([
+//            'name' => 'required|string',
+//            'email' => 'required|string',
+//            'description' => 'required|string',
+//            'active' => 'required|boolean',
+//            'membership_id' => 'required',
+//            'membership_until' => 'required',
+//        ]);
+
+        $imagePath = $request->file('logo')->storeAs("logos", $request->file('logo')->getClientOriginalName(), 'public');
+
+        $company = Company::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'logo' => $imagePath,
+            'description' => $request->description,
+            'active' => $request->active,
+            'membership_id' => $request->membership_id,
+            'membership_until' => Carbon::parse($request->membership_until),
+            'country_id' => $request->country_id,
+            'city_id' => $request->city_id,
+            'street' => $request->street,
+            'house_number' => $request->house_number,
+            'phone_number' => $request->phone_number,
+        ]);
+
+        foreach ($request->contactLinks as $contact) {
+            CompanyContactLink::create([
+                'company_id' => $company->id,
+                'social_media_id' => $contact['social_media_id'],
+                'link' => $contact['link'],
+            ]);
+        }
+
+        //TODO: here try to add all content files
+
+        foreach ($request->file('content_files') as $image) {
+            $imagePath = $image->storeAs(
+                "contents/{$company->name}",
+                $image->getClientOriginalName(),
+                'public'
+            );
+
+            $companyContent = new CompanyContentMediaLink();
+            $companyContent->company_id = $company->id;
+            $companyContent->path = $imagePath;
+            $companyContent->save();
+        }
+
+        $companies = Company::all();
+
+        return Inertia::render('Core/Company/list', [
+            'user' => $user,
+            'companies' => $companies,
+        ]);
     }
 
     /**
@@ -65,7 +125,18 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        $user = auth()->user();
+        $memberships = Membership::all();
+        $countries = Country::all();
+        $socialMedias = SocialMedia::all();
+
+        return Inertia::render('Core/Company/edit', [
+            'user' => $user,
+            'memberships' => $memberships,
+            'socialMedias' => $socialMedias,
+            'countries' => $countries,
+            'company' => $company
+        ]);
     }
 
     /**

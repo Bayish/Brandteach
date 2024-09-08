@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class StudentGroup extends Model
 {
     use HasFactory;
-    protected $with = ['group'];
+    protected $with = ['student'];
 
     protected $fillable = [
         'student_id',

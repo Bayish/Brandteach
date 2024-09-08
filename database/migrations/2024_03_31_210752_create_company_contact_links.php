@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('company_contact_links', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id');
-            $table->foreignId('contact_link_id');
+            $table->foreignId('social_media_id');
+            $table->string('link');
             $table->timestamps();
         });
     }

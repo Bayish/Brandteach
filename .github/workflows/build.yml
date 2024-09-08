@@ -1,0 +1,12 @@
+# // code from earlier is ommited for clearity
+
+- name: Compile CSS and Javascript
+  run: |
+      npm ci
+      npm run prod
+
+- name: Configure PHP 8.1
+  uses: shivammathur/setup-php@master
+  with:
+      php-version: 8.1
+      extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml

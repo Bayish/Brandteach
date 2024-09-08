@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('link');
-            $table->string('media');
+            $table->string('theory_link');
+            $table->string('theory_media');
+            $table->string('task_link');
+            $table->string('task_media');
             $table->string('status');
             $table->foreignId('teacher_id');
             $table->foreignId('group_id');

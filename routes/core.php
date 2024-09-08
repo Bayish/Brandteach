@@ -38,7 +38,8 @@ Route::post('/chat/groups/{groupId}/messages', [DirectMessageController::class, 
 Route::get('/company/list', [CompanyController::class, 'index'])->name('company');
 Route::get('/company/create', [CompanyController::class, 'create'])->name('company.create');
 Route::post('/company/store', [CompanyController::class, 'store'])->name('company.store');
-Route::get('/company/{companyId}', [CompanyController::class, 'show'])->name('company.index');
+Route::get('/company/edit/{company}', [CompanyController::class, 'edit'])->name('company.edit');
+Route::get('/company/index/{companyId}', [CompanyController::class, 'show'])->name('company.index');
 
 
 
