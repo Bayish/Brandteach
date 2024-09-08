@@ -1,12 +1,12 @@
 <script setup>
-import Logo from '@/icons/favicon-brandteach.vue';
+import LogoMobile from '@/icons/favicon-brandteach.vue';
+import LogoDesktop from '@/icons/brandteach-desktop.vue';
 import Link from "@/layout/navigation/Link.vue";
 </script>
 
 <template>
-  <div>
     <Link class="text-center">
-      <Logo/>
+        <LogoMobile class="lg:hidden"/>
+        <LogoDesktop class="hidden min-h-16 lg:block xl:min-h-24"/>
     </Link>
-  </div>
 </template>

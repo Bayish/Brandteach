@@ -1,3 +1,6 @@
+import {trans} from "laravel-vue-i18n";
+
+
 const core = {
     header: [{
         title: "Dashboard",
@@ -27,7 +30,6 @@ const core = {
 const storefront = {
     header:[
         {
-            title: "Студентам",
             link: "home",
             icon: "compass",
             iconType: "far",
@@ -38,7 +40,6 @@ const storefront = {
             ]
         },
         {
-            title: "Курсы",
             link: "courses",
             icon: "compass",
             iconType: "far",
@@ -46,7 +47,6 @@ const storefront = {
             metaDescription: "Ищите онлайн курсы с наставниками? Посетите страницу курсов на Brand Teach и выберите подходящий курс из нашего разнообразного ассортимента.",
         },
         {
-            title: "Новости",
             link: "news",
             icon: "compass",
             iconType: "far",
@@ -54,7 +54,6 @@ const storefront = {
             metaDescription: "Узнавайте последние новости и обновления от Brand Teach. Будьте в курсе всех событий и развития нашей платформы для обучения онлайн.",
         },
         {
-            title: "Учителям (Партнерам)",
             link: "partners",
             icon: "compass",
             iconType: "far",
@@ -62,7 +61,6 @@ const storefront = {
             metaDescription: "Присоединяйтесь к нам в качестве наставника или компании. Управляйте курсами, взаимодействуйте с учениками и развивайтесь с нами!",
         },
         {
-            title: "Контакт",
             link: "contact",
             icon: "compass",
             iconType: "far",

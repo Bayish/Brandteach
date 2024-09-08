@@ -1,7 +1,7 @@
 <script setup>
-import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
 import TitleSecondary from "@/element/titles/title-secondary.vue";
 import TitleThird from "@/element/titles/title-third.vue";
+import SectionsContainer from "@/element/sections/sections-container.vue";
 
 const blocks = [
     {
@@ -36,7 +36,7 @@ const blocks = [
 </script>
 <template>
     <section>
-        <section-container>
+        <sections-container>
             <div class="flex flex-col items-center justify-center">
 
                 <div class="flex flex-col items-center justify-center mt-12">
@@ -44,7 +44,7 @@ const blocks = [
                     <title-third class="text-secondary lg:w-3/4 text-center my-4">Мы стремимся сделать образование доступным для всех, предоставляя широкий выбор курсов по разным тематикам и обеспечивая удобные условия для обучения и развития..</title-third>
                 </div>
                 <div class="grid grid-cols-1 gap-10 mt-20 lg:grid-cols-3 md:grid-cols-2">
-                    <div v-for="(block, index) in blocks" class="flex flex-col items-center col-span-1 gap-6 px-10 py-8 hover:bg-white hover:shadow-main rounded-3xl">
+                    <div v-for="(block, index) in blocks" class="flex flex-col items-center col-span-1 gap-6 p-4 md:px-10 md:py-8 hover:bg-white hover:shadow-main rounded-3xl">
                         <div>
                             <div class="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary">
                                 <svg v-if="index + 1 === 1" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
@@ -74,6 +74,6 @@ const blocks = [
                     </div>
                 </div>
             </div>
-        </section-container>
+        </sections-container>
     </section>
 </template>

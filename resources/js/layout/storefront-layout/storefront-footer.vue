@@ -3,7 +3,7 @@
 </script>
 <template>
     <footer class="bg-white dark:bg-info">
-        <div class="container max-w-screen-xl mx-auto py-6">
+        <div class="px-4 container max-w-screen-xl mx-auto py-6">
             <div class="grid py-6 grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
                 <div class="sm:col-span-2">
                     <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">

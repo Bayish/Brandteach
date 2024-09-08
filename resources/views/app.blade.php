@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="lightTheme" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html  style="scroll-padding-top: 5rem; scroll-behavior: smooth;" class="scroll-smooth [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem] js-focus-visible" data-theme="lightTheme" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     <head>
         <meta charset="utf-8" />

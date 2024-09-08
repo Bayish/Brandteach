@@ -21,6 +21,13 @@ export default {
                 'max-height': 'max-height'
             }
         },
+        container: {
+            maxWidth: {
+                sm: '100%',
+                md: '100%',
+                lg: '100%'
+            },
+        },
     },
     plugins: [
         require("daisyui"),

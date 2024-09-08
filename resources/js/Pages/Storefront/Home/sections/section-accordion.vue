@@ -61,9 +61,9 @@ const faqsPartners = [
 </script>
 
 <template>
-    <main class="bg-accent container mx-auto rounded-xl shadow mb-8 py-8">
-        <div class="w-full  mx-auto px-4 md:px-6 ">
-            <title-secondary class="mb-4">FAQs</title-secondary>
+    <main class="bg-accent rounded-xl shadow mx-4 md:m-8 py-8">
+        <div class="container  mx-auto px-0 md:px-6 ">
+            <title-secondary class="mb-4 px-2">FAQs</title-secondary>
             <div class="flex flex-row flex-wrap w-full items-baseline justify-between">
 
                 <div class="lg:w-6/12 px-2 py-2">
@@ -81,16 +81,6 @@ const faqsPartners = [
                     </template>
                 </div>
             </div>
-
-
-<!--            <div class="flex flex-row flex-wrap w-full items-baseline justify-between">-->
-<!--                <template v-for="(faq, index) in faqHome">-->
-<!--                    <animated-accordion class="w-5/12 py-2 px-4 border-b-2 border-b-base-100" :title="faq.title" :id="`faqs-${index}`" :active="faq.active">-->
-<!--                        {{ faq.text }}-->
-<!--                    </animated-accordion>-->
-<!--                </template>-->
-<!--            </div>-->
-
         </div>
     </main>
 </template>

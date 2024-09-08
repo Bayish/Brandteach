@@ -1,5 +1,5 @@
 <script setup>
-import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
+import SectionsContainer from "@/element/sections/sections-container.vue";
 
 const plans = [
     {
@@ -39,7 +39,7 @@ const plans = [
 </script>
 <template>
     <section>
-        <section-container>
+        <sections-container>
             <div class="px-6 py-8 bg-accent shadow rounded-xl">
                 <div class="sm:flex sm:items-center sm:justify-between">
                     <div>
@@ -107,7 +107,7 @@ const plans = [
                 </div>
             </div>
 
-        </section-container>
+        </sections-container>
 
     </section>
 </template>

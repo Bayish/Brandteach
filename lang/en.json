@@ -1,6 +1,28 @@
 {
+    "storefront.navigation.home": "Студентам",
+    "storefront.navigation.courses": "Курсы",
+    "storefront.navigation.news": "Новости",
+    "storefront.navigation.partners": "Учителям (Партнерам)",
+    "storefront.navigation.contact": "Контакт",
+    "storefront.navigation.login": "Войти",
+    "storefront.navigation.login.students": "Вход для студентов",
+    "storefront.navigation.login.students.desc": "Если вы студент, пожалуйста, войдите здесь",
+    "storefront.navigation.login.partners": "Вход для учителей и партнёров",
+    "storefront.navigation.login.partners.desc": "Если вы учитель или партнёр, вы можете войти здесь",
+    "storefront.navigation.demo": "Посмотреть демо",
+    "storefront.navigation.login.contact": "Посмотреть демо",
+
+    "storefront.home.hero.title": "Мир онлайн-образования теперь доступен",
+    "storefront.home.hero.subtitle": "Ваше образование начинается здесь",
+    "storefront.home.hero.desc": "Для того чтобы учиться, вам не обязательно куда-то ехать. Вы можете найти все здесь и обучаться онлайн с лучшими наставниками.",
+    "storefront.home.hero.btn.begin": "Начнем",
+    "storefront.home.hero.btn.consult": "Получите консультацию",
+    "storefront.home.courses.title": "Ближайшие наши курсы",
     "pages": {
         "landing": {
+            "hero": {
+                "title": "Ваше образование начинается здесь"
+            },
             "title": "Landing",
             "description": "Description",
             "navigations": {
@@ -19,5 +41,6 @@
                 "lesson": "Lessons"
             }
         }
-    }
+    },
+    "Logout": "Наши курсы"
 }

@@ -1,6 +1,8 @@
 <script setup>
 import CrmAside from "@/layout/crm-layout/crm-aside.vue";
 import CrmView from "@/layout/crm-layout/crm-view.vue";
+import {onBeforeMount} from "vue";
+import {loadLanguageAsync} from "laravel-vue-i18n";
 
 defineProps({
   user: {
@@ -8,6 +10,10 @@ defineProps({
     default: null
   }
 });
+
+onBeforeMount(() => {
+    loadLanguageAsync(localStorage.getItem('lang') ?? 'de')
+})
 
 
 </script>

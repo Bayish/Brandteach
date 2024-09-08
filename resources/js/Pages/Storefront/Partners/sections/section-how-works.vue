@@ -1,5 +1,6 @@
 <script setup>
-import SectionContainer from "@/Pages/Storefront/Home/sections/section-container.vue";
+import SectionsContainer from "@/element/sections/sections-container.vue";
+
 const steps = [
     {
         "title": "Заполнение формы контакта",
@@ -19,7 +20,7 @@ const steps = [
 
 <template>
     <section>
-        <section-container>
+        <sections-container>
             <div class="shadow bg-accent rounded-xl py-8 flex flex-col items-center gap-16 mx-auto p-4">
                 <div class="flex flex-col gap-16">
                     <div class="flex flex-col gap-2 text-center">
@@ -57,7 +58,7 @@ const steps = [
                     </div>
                 </div>
             </div>
-        </section-container>
+        </sections-container>
     </section>
 </template>
 
